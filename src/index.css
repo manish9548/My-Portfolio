@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-zinc-950 text-slate-200 font-sans antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.3);
+  color: #fff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#22d3ee, #a855f7);
+  border-radius: 8px;
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.04] backdrop-blur-xl border border-white/10;
+  }
+  .glass-hover {
+    @apply transition-colors duration-300 hover:border-neon-cyan/40 hover:bg-white/[0.07];
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-neon-cyan via-sky-400 to-neon-purple bg-clip-text text-transparent;
+  }
+  .section {
+    @apply relative mx-auto w-full max-w-6xl px-5 py-24 sm:px-8;
+  }
+  .neon-input {
+    @apply w-full rounded-xl border border-white/10 bg-zinc-900/70 px-4 py-3 text-sm text-slate-100
+      placeholder:text-slate-500 outline-none transition-all duration-300
+      focus:border-neon-cyan focus:shadow-[0_0_0_3px_rgba(34,211,238,0.15),0_0_24px_rgba(34,211,238,0.25)];
+  }
+}
